@@ -126,8 +126,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const screenshotsContainer = document.getElementById("screenshots");
-        const scrollDuration = 2000; // Duration of scroll animation (2 seconds)
-        const scrollInterval = 3000; // Interval between scrolls (3 seconds)
+        const scrollDuration = 3000; // Duration of scroll animation (3 seconds)
+        const scrollInterval = 4000; // Interval between scrolls (4 seconds)
         let userScrolled = false;
         let scrollDirection = 1; // 1 for forward, -1 for backward
 
@@ -153,7 +153,7 @@
             }
         }
 
-        // Start auto-scrolling after 3 seconds, then every 3 seconds
+        // Start auto-scrolling after 4 seconds, then every 4 seconds
         setTimeout(function() {
             setInterval(autoScrollScreenshots, scrollInterval);
         }, scrollInterval);
