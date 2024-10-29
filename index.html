@@ -61,7 +61,7 @@
         }
         .screenshots {
             display: flex;
-            overflow-x: auto;
+            overflow-x: hidden;
             gap: 10px;
             padding-bottom: 20px;
             margin-bottom: 20px;
@@ -126,7 +126,10 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const screenshotsContainer = document.getElementById("screenshots");
+        const scrollDuration = 2000; // Duration of scroll animation (2 seconds)
+        const scrollInterval = 3000; // Interval between scrolls (3 seconds)
         let userScrolled = false;
+        let scrollDirection = 1; // 1 for forward, -1 for backward
 
         // Detect if user has manually scrolled the screenshots container
         screenshotsContainer.addEventListener("scroll", function() {
@@ -136,19 +139,24 @@
         // Auto-scroll function
         function autoScrollScreenshots() {
             if (!userScrolled) {
-                // Scroll right by one screenshot's width
-                screenshotsContainer.scrollBy({ left: 210, behavior: "smooth" });
-                // If the end of scroll is reached, reset to the start
-                if (screenshotsContainer.scrollLeft + screenshotsContainer.offsetWidth >= screenshotsContainer.scrollWidth) {
-                    screenshotsContainer.scrollTo({ left: 0, behavior: "smooth" });
+                const maxScrollLeft = screenshotsContainer.scrollWidth - screenshotsContainer.clientWidth;
+                let newScrollLeft;
+
+                if (scrollDirection === 1) {
+                    newScrollLeft = maxScrollLeft;
+                } else {
+                    newScrollLeft = 0;
                 }
+
+                screenshotsContainer.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+                scrollDirection *= -1; // Reverse the direction for the next scroll
             }
         }
 
-        // Start auto-scrolling after 3 seconds
+        // Start auto-scrolling after 3 seconds, then every 3 seconds
         setTimeout(function() {
-            setInterval(autoScrollScreenshots, 3000);
-        }, 3000);
+            setInterval(autoScrollScreenshots, scrollInterval);
+        }, scrollInterval);
     });
 </script>
 
