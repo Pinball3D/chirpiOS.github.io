@@ -65,6 +65,7 @@
             gap: 10px;
             padding-bottom: 20px;
             margin-bottom: 20px;
+            scroll-behavior: smooth;
         }
         .screenshot {
             min-width: 200px;
@@ -100,7 +101,7 @@
     <a href="https://testflight.apple.com/join/6tvFJRz3" class="testflight-button" target="_blank">View in TestFlight</a>
 
     <!-- Screenshots Section -->
-    <div class="screenshots">
+    <div class="screenshots" id="screenshots">
         <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/1.png'); background-size: cover;"></div>
         <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/2.png'); background-size: cover;"></div>
         <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/3.png'); background-size: cover;"></div>
@@ -121,6 +122,35 @@
         </p>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const screenshotsContainer = document.getElementById("screenshots");
+        let userScrolled = false;
+
+        // Detect if user has manually scrolled the screenshots container
+        screenshotsContainer.addEventListener("scroll", function() {
+            userScrolled = true;
+        });
+
+        // Auto-scroll function
+        function autoScrollScreenshots() {
+            if (!userScrolled) {
+                // Scroll right by one screenshot's width
+                screenshotsContainer.scrollBy({ left: 210, behavior: "smooth" });
+                // If the end of scroll is reached, reset to the start
+                if (screenshotsContainer.scrollLeft + screenshotsContainer.offsetWidth >= screenshotsContainer.scrollWidth) {
+                    screenshotsContainer.scrollTo({ left: 0, behavior: "smooth" });
+                }
+            }
+        }
+
+        // Start auto-scrolling after 3 seconds
+        setTimeout(function() {
+            setInterval(autoScrollScreenshots, 3000);
+        }, 3000);
+    });
+</script>
 
 </body>
 </html>
