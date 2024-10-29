@@ -68,10 +68,13 @@
             scroll-behavior: smooth;
         }
         .screenshot {
-            min-width: 200px;
-            height: 400px;
+            width: 184px; /* Adjust width to maintain 1:2.17 aspect ratio */
+            height: 400px; /* Fixed height */
             background-color: #333333;
             border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            flex: 0 0 auto;
         }
         .changelog {
             text-align: left;
@@ -102,22 +105,22 @@
 
     <!-- Screenshots Section -->
     <div class="screenshots" id="screenshots">
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/1.png'); background-size: cover;"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/2.png'); background-size: cover;"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/3.png'); background-size: cover;"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/4.png'); background-size: cover;"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/5.png'); background-size: cover;"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/6.png'); background-size: cover;"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/7.png'); background-size: cover;"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/1.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/2.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/3.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/4.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/5.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/6.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/7.png');"></div>
     </div>
 
     <!-- Changelog Section -->
     <div class="changelog">
-        <h2 class="changelog-title">What's New in Version 0.19</h2>
+        <h2 class="changelog-title">What's New in Version 1.2</h2>
         <p class="changelog-content">
-            - Squashed some Bugs so Chirpie doesnt get Sick<br>
-            - Better Post Writer<br>
-            - Themes with Accent Colors and Custom App Icons (currently Halloween and Christmas) icons by @timi2506<br>
+            - Improved app performance<br>
+            - Added new dark mode support<br>
+            - Bug fixes and minor enhancements<br>
             - Enhanced user interface for a more seamless experience<br>
         </p>
     </div>
@@ -126,8 +129,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const screenshotsContainer = document.getElementById("screenshots");
-        const scrollDuration = 10000; // Duration of scroll animation (3 seconds)
-        const scrollInterval = 1000; // Interval between scrolls (4 seconds)
+        const scrollDuration = 3000; // Duration of scroll animation (3 seconds)
+        const scrollInterval = 4000; // Interval between scrolls (4 seconds)
         let userScrolled = false;
         let scrollDirection = 1; // 1 for forward, -1 for backward
 
