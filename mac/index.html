@@ -1,1 +1,169 @@
-soon...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp for iOS - beta</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        body {
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .app-icon {
+            width: 100px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .app-name {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+        .app-description {
+            font-size: 1em;
+            color: #aaaaaa;
+            margin-bottom: 20px;
+        }
+        .testflight-button {
+            background-color: #007aff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        .testflight-button:hover {
+            background-color: #005bb5;
+        }
+        .screenshots {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            scroll-behavior: smooth;
+            max-height: 600px; /* Set a maximum height for the container */
+        }
+        .screenshot {
+            max-height: 100%; /* Ensures images don't exceed the container's height */
+            width: auto; /* Maintain aspect ratio */
+            background-color: #333333;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            flex: 0 0 auto;
+            object-fit: contain; /* Contain images within the height */
+        }
+        .changelog {
+            text-align: left;
+        }
+        .changelog-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .changelog-content {
+            font-size: 1em;
+            color: #aaaaaa;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- App Icon and Name -->
+    <img src="https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/birb.png" alt="Chirp Icon" class="app-icon">
+    <h1 class="app-name">Chirp for iOS</h1>
+    <p class="app-description">Unofficial Chirp App for iOS</p>
+
+    <!-- TestFlight Button -->
+    <a href="https://testflight.apple.com/join/6tvFJRz3" class="testflight-button" target="_blank">View in TestFlight</a>
+
+    <!-- Screenshots Section -->
+    <div class="screenshots" id="screenshots">
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/1.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/2.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/3.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/4.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/5.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/6.png');"></div>
+        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/7.png');"></div>
+    </div>
+
+    <!-- Changelog Section -->
+    <div class="changelog">
+        <h2 class="changelog-title">What's New in Version 0.19</h2>
+        <p class="changelog-content">
+            - Squashed some Bugs so Chirpie doesnt get Sick<br>
+            - Better Post Writer<br>
+            - Themes with Accent Colors and Custom App Icons (currently Halloween and Christmas) icons by @timi2506<br>
+            - UI improvements
+        </p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const screenshotsContainer = document.getElementById("screenshots");
+        const scrollDuration = 3000; // Duration of scroll animation (3 seconds)
+        const scrollInterval = 4000; // Interval between scrolls (4 seconds)
+        let userScrolled = false;
+        let scrollDirection = 1; // 1 for forward, -1 for backward
+
+        // Detect if user has manually scrolled the screenshots container
+        screenshotsContainer.addEventListener("scroll", function() {
+            userScrolled = true;
+        });
+
+        // Auto-scroll function
+        function autoScrollScreenshots() {
+            if (!userScrolled) {
+                const maxScrollLeft = screenshotsContainer.scrollWidth - screenshotsContainer.clientWidth;
+                let newScrollLeft;
+
+                if (scrollDirection === 1) {
+                    newScrollLeft = maxScrollLeft;
+                } else {
+                    newScrollLeft = 0;
+                }
+
+                screenshotsContainer.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+                scrollDirection *= -1; // Reverse the direction for the next scroll
+            }
+        }
+
+        // Start auto-scrolling after 4 seconds, then every 4 seconds
+        setTimeout(function() {
+            setInterval(autoScrollScreenshots, scrollInterval);
+        }, scrollInterval);
+    });
+</script>
+
+</body>
+</html>
