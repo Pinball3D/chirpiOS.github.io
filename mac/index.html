@@ -68,12 +68,23 @@
             padding-bottom: 10px;
         }
         .screenshot {
-            width: 200px;
-            height: 120px;
+            width: 200px; /* Fixed width */
+            aspect-ratio: 16 / 10; /* Set aspect ratio to 16:10 */
             background-color: #444;
             border-radius: 10px;
+            overflow: hidden;
             flex: 0 0 auto;
             border: 1px solid #3a3a3c;
+            position: relative;
+        }
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image fills the container while maintaining aspect ratio */
+            object-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
         .whats-new {
             text-align: left;
@@ -105,13 +116,27 @@
 
     <!-- Screenshots Section -->
     <div class="screenshots">
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png');"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/2.png');"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png');"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png');"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png');"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png');"></div>
-        <div class="screenshot" style="background-image: url('https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png');"></div>
+        <div class="screenshot">
+            <img src="https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png" alt="Screenshot 1">
+        </div>
+        <div class="screenshot">
+            <img src="https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png" alt="Screenshot 2">
+        </div>
+        <div class="screenshot">
+            <img src="placeholder3.png" alt="Screenshot 3">
+        </div>
+        <div class="screenshot">
+            <img src="placeholder4.png" alt="Screenshot 4">
+        </div>
+        <div class="screenshot">
+            <img src="placeholder5.png" alt="Screenshot 5">
+        </div>
+        <div class="screenshot">
+            <img src="placeholder6.png" alt="Screenshot 6">
+        </div>
+        <div class="screenshot">
+            <img src="placeholder7.png" alt="Screenshot 7">
+        </div>
     </div>
 
     <!-- What's New Section -->
