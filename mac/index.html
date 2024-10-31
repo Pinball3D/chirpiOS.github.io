@@ -68,23 +68,54 @@
             padding-bottom: 10px;
         }
         .screenshot {
-            width: 200px; /* Fixed width */
-            aspect-ratio: 16 / 10; /* Set aspect ratio to 16:10 */
+            width: 200px;
+            aspect-ratio: 16 / 10;
             background-color: #444;
             border-radius: 10px;
             overflow: hidden;
             flex: 0 0 auto;
             border: 1px solid #3a3a3c;
             position: relative;
+            cursor: pointer;
         }
         .screenshot img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures image fills the container while maintaining aspect ratio */
+            object-fit: cover;
             object-position: center;
             position: absolute;
             top: 0;
             left: 0;
+        }
+        /* Fullscreen Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .modal:target {
+            display: flex;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: #ffffff;
+            cursor: pointer;
+            text-decoration: none;
         }
         .whats-new {
             text-align: left;
@@ -116,27 +147,57 @@
 
     <!-- Screenshots Section -->
     <div class="screenshots">
-        <div class="screenshot">
+        <a href="#modal1" class="screenshot">
             <img src="https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png" alt="Screenshot 1">
-        </div>
-        <div class="screenshot">
+        </a>
+        <a href="#modal2" class="screenshot">
             <img src="https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png" alt="Screenshot 2">
-        </div>
-        <div class="screenshot">
+        </a>
+        <a href="#modal3" class="screenshot">
             <img src="placeholder3.png" alt="Screenshot 3">
-        </div>
-        <div class="screenshot">
+        </a>
+        <a href="#modal4" class="screenshot">
             <img src="placeholder4.png" alt="Screenshot 4">
-        </div>
-        <div class="screenshot">
+        </a>
+        <a href="#modal5" class="screenshot">
             <img src="placeholder5.png" alt="Screenshot 5">
-        </div>
-        <div class="screenshot">
+        </a>
+        <a href="#modal6" class="screenshot">
             <img src="placeholder6.png" alt="Screenshot 6">
-        </div>
-        <div class="screenshot">
+        </a>
+        <a href="#modal7" class="screenshot">
             <img src="placeholder7.png" alt="Screenshot 7">
-        </div>
+        </a>
+    </div>
+
+    <!-- Modal Sections for Fullscreen View -->
+    <div id="modal1" class="modal">
+        <a href="#" class="close-modal">&times;</a>
+        <img src="https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png" alt="Screenshot 1">
+    </div>
+    <div id="modal2" class="modal">
+        <a href="#" class="close-modal">&times;</a>
+        <img src="https://raw.githubusercontent.com/Pinball3D/chirpiOS.github.io/refs/heads/main/images/Mac/1.png" alt="Screenshot 2">
+    </div>
+    <div id="modal3" class="modal">
+        <a href="#" class="close-modal">&times;</a>
+        <img src="placeholder3.png" alt="Screenshot 3">
+    </div>
+    <div id="modal4" class="modal">
+        <a href="#" class="close-modal">&times;</a>
+        <img src="placeholder4.png" alt="Screenshot 4">
+    </div>
+    <div id="modal5" class="modal">
+        <a href="#" class="close-modal">&times;</a>
+        <img src="placeholder5.png" alt="Screenshot 5">
+    </div>
+    <div id="modal6" class="modal">
+        <a href="#" class="close-modal">&times;</a>
+        <img src="placeholder6.png" alt="Screenshot 6">
+    </div>
+    <div id="modal7" class="modal">
+        <a href="#" class="close-modal">&times;</a>
+        <img src="placeholder7.png" alt="Screenshot 7">
     </div>
 
     <!-- What's New Section -->
